@@ -1,44 +1,48 @@
-const Sample = {
+export const SampleData = {
     ceo: {
         name: "CEO Name",
         id: "CE0001",
         contact: "9876543210",
-        email: "test@test.com"
+        email: "test@test.com",
     },
     departments: [
         {
+            name: "HR",
             abvr: "HR",
-            name: "Head of Staff/HR",
             head: {
-                name: "HR Head",
+                name: "Abhinav Shukla",
                 contact: "9876543210",
                 email: 'hrhead@test.com',
-                id: 'HR0001'
+                id: 'HR0001',
+                department: 'HR',
+                isHead: true,
             },
             teams: [{
                 id: 1,
-                name: 'Team 1 of HR',
+                name: 'Aplha HR',
                 members: [{
-                    name: "Employee 1 of HR",
+                    name: "Chandni Sharma",
                     contact: "9876543210",
                     email: 'employeeoneofhr@test.com',
-                    id: 'HR1001'
+                    id: 'HR1001',
+                    isLead: true,
                 },
                 {
-                    name: "Employee 2 of HR",
+                    name: "HR Employee 12",
                     contact: '9876543210',
                     email: 'employeetwoofhr@test.com',
                     id: 'HR2002'
                 }]
             },
             {
-                name: "Team 2 of HR",
+                name: "Bravo HR",
                 id: 2,
                 members: [{
                     name: "Employee 1 of HR",
                     contact: "9876543210",
                     email: 'employeeoneofhr@test.com',
-                    id: 'HR0001'
+                    id: 'HR0001',
+                    isLead: true,
                 },
                 {
                     name: "Employee 2 of HR",
@@ -50,22 +54,24 @@ const Sample = {
             ]
         },
         {
-            abvr: "eng",
-            name: "Head of Engineering",
+            name: "Engineering",
+            abvr: "ENG",
             head: {
                 name: "Head of Engineering",
                 contact: "9876543210",
                 email: 'engineeringhead@test.com',
-                id: 'EN0001'
+                id: 'EN0001',
+                isHead: true,
             },
             teams: [{
-                id: 1,
-                name: "Team 1 of ENG",
+                id: 0,
+                name: "Alpha Engineering",
                 members: [{
                     name: "Employee 1 of ENG",
                     contact: "9876543210",
                     email: 'employeeoneofhr@test.com',
-                    id: 'EN1001'
+                    id: 'EN1001',
+                    isLead: true,
                 },
                 {
                     name: "Employee 2 of ENG",
@@ -75,13 +81,14 @@ const Sample = {
                 }]
             },
             {
-                id: 2,
-                name: "Team 2 of HR",
+                id: 1,
+                name: "Bravo Engineering",
                 members: [{
-                    name: "Employee 1 of ENG",
+                    name: "Eng Employee 12",
                     contact: "9876543210",
                     email: 'employeeoneofeng@test.com',
-                    id: 'EN2001'
+                    id: 'EN2001',
+                    isLead: true
                 },
                 {
                     name: "Employee 2 of ENG",
@@ -94,5 +101,3 @@ const Sample = {
         }
     ]
 }
-
-export default Sample

@@ -11,7 +11,7 @@ function TeamCard(props) {
                 <button className="bg-green-400 p-2 rounded-md active:bg-green-500 focus:ring-2 focus:ring-green-600 m-auto" departmentindex={props.departmentindex} teamindex={props.teamindex}>Add Member</button>
             </div>
             {team.members.length === 0 ? <p>Oops,You got an empty team.Add a member.</p> : null}
-            {team.members.map((member, index) => <EmployeeCard key={uuidv4()} data={member} departmentName={props.departmentName} departmentindex={props.departmentindex} memberindex={index} teamindex={index} teamName={props.teamName} />)}
+            {team.members.map((member, index) => <EmployeeCard key={uuidv4()} data={member} departmentName={props.departmentName} departmentindex={props.departmentindex} memberindex={index} teamindex={props.teamindex} teamName={props.teamName} />)}
         </div>
     )
 }

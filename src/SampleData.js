@@ -17,40 +17,39 @@ export const SampleData = {
                 department: 'HR',
                 isHead: true,
             },
-            teams: [{
-                id: 1,
-                name: 'Aplha HR',
-                members: [{
-                    name: "Chandni Sharma",
-                    contact: "9876543210",
-                    email: 'employeeoneofhr@test.com',
-                    id: 'HR1001',
-                    isLead: true,
+            teams: [
+                {
+                    name: 'Aplha HR',
+                    members: [{
+                        name: "Chandni Sharma",
+                        contact: "9876543210",
+                        email: 'employeeoneofhr@test.com',
+                        id: 'HR1001',
+                        isLead: true,
+                    },
+                    {
+                        name: "HR Employee 12",
+                        contact: '9876543210',
+                        email: 'employeetwoofhr@test.com',
+                        id: 'HR2002'
+                    }]
                 },
                 {
-                    name: "HR Employee 12",
-                    contact: '9876543210',
-                    email: 'employeetwoofhr@test.com',
-                    id: 'HR2002'
-                }]
-            },
-            {
-                name: "Bravo HR",
-                id: 2,
-                members: [{
-                    name: "Employee 1 of HR",
-                    contact: "9876543210",
-                    email: 'employeeoneofhr@test.com',
-                    id: 'HR0001',
-                    isLead: true,
-                },
-                {
-                    name: "Employee 2 of HR",
-                    contact: '9876543210',
-                    email: 'employeetwoofhr@test.com',
-                    id: 'HR0002'
-                }]
-            }
+                    name: "Bravo HR",
+                    members: [{
+                        name: "Employee 1 of HR",
+                        contact: "9876543210",
+                        email: 'employeeoneofhr@test.com',
+                        id: 'HR0001',
+                        isLead: true,
+                    },
+                    {
+                        name: "Employee 2 of HR",
+                        contact: '9876543210',
+                        email: 'employeetwoofhr@test.com',
+                        id: 'HR0002'
+                    }]
+                }
             ]
         },
         {
@@ -64,7 +63,6 @@ export const SampleData = {
                 isHead: true,
             },
             teams: [{
-                id: 0,
                 name: "Alpha Engineering",
                 members: [{
                     name: "Employee 1 of ENG",
@@ -81,7 +79,6 @@ export const SampleData = {
                 }]
             },
             {
-                id: 1,
                 name: "Bravo Engineering",
                 members: [{
                     name: "Eng Employee 12",

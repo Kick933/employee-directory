@@ -15,10 +15,11 @@ function App() {
     }
   }
 
-  //Data persistence effect
+  // Data persistence effect
   useEffect(() => {
     localStorage.setItem('employeeData', JSON.stringify(data))
   }, [data])
+
   return (
     <EmployeeData.Provider value={{ data, setData }}>
       <div className="w-screen">

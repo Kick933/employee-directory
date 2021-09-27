@@ -9,33 +9,9 @@ function EmployeeCard(props) {
         const departmentindex = target.getAttribute('departmentindex')
         const teamindex = target.getAttribute('teamindex')
         const memberindex = target.getAttribute('memberindex')
-        setData({
-            ...data,
-            departments: [
-                data.departments.map((a, index) => {
-                    if (index !== departmentindex) {
-                        return a;
-                    }
-                    return {
-                        ...a,
-                        teams: [
-                            a.teams.map((team, index) => {
-                                if (index !== teamindex) {
-                                    return team
-                                }
-                                return {
-                                    ...team,
-                                    members: [
-                                        team.members.filter((a, index) => index !== memberindex)
-                                    ]
-                                }
-                            })
-                        ]
-                    }
-                })
-
-            ]
-        })
+        const newData = JSON.parse(JSON.stringify(data))
+        newData.departments[departmentindex].teams[teamindex].members.splice(memberindex, 1)
+        setData(newData)
     }
 
 

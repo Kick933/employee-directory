@@ -2,19 +2,17 @@ import React, { useState, useContext } from 'react'
 import { EmployeeData } from '../contexts/EmployeeData';
 
 function EditEmployee(props) {
-    const { Data, setData } = useContext(EmployeeData)
+    const { data, setData } = useContext(EmployeeData)
     const makeChange = e => {
         e.preventDefault();
         if (props.teamIndex) {
             setData({
-                ...Data,
                 departments: [
-                    Data.departments.map((a, index) => {
+                    data.departments.map((a, index) => {
                         if (index !== props.departmentIndex) {
                             return a;
                         }
                         return {
-                            ...a,
                             teams: [
                                 a.teams.map((team, index) => {
                                     if (index !== props.teamIndex) {
@@ -32,11 +30,13 @@ function EditEmployee(props) {
                                         ]
                                     }
                                 })
-                            ]
+                            ],
+                            ...a
                         }
                     })
 
-                ]
+                ],
+                ...data
             })
         } else {
             setData({

@@ -4,6 +4,8 @@ export const SampleData = {
         id: "CE0001",
         contact: "9876543210",
         email: "test@test.com",
+        isHead: true,
+        isCeo: true
     },
     departments: [
         {

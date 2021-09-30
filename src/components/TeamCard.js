@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import EmployeeCard from './EmployeeCard'
 import { v4 as uuidv4 } from 'uuid'
 import { useHistory } from 'react-router'
-import { useContext } from 'react/cjs/react.development'
 import { IndexLocator } from '../contexts/IndexLocator'
 
 function TeamCard(props) {

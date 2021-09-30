@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TeamCard from './TeamCard'
 import WrapperCard from './WrapperCard'
 import { v4 as uuidv4 } from 'uuid'
 import EmployeeCard from './EmployeeCard'
 import { useHistory } from 'react-router'
-import { useContext } from 'react/cjs/react.development'
 import { IndexLocator } from '../contexts/IndexLocator'
 
 function DepartmentCard(props) {

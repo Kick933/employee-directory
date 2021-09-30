@@ -29,7 +29,7 @@ function EditEmployee(props) {
     }
 
     function referToTransfer(e) {
-        console.log('Transferring')
+        alert('Transfer functionality not yet enabled.')
     }
     let member = {
         name: "Name",

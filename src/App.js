@@ -1,74 +1,61 @@
-import DepartmentCard from './components/DepartmentCard';
-import { v4 as uuidv4 } from 'uuid'
-import React, { useEffect, useState } from 'react';
-import { EmployeeData } from './contexts/EmployeeData'
+import React, { useState, useEffect } from 'react'
+import Nav from './components/Nav'
 import { SampleData } from './SampleData'
-import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom'
-import EditEmployee from './components/EditEmployee';
-import { IndexLocator } from './contexts/IndexLocator';
-import EditTeam from './components/EditTeam';
-import EmployeeCard from './components/EmployeeCard';
+import DepartmentCard from './components/DepartmentCard'
+import { EmployeeData } from './contexts/EmployeeData'
+import { IndexLocator } from './contexts/IndexLocator'
+import EditTeam from './components/EditTeam'
+import EmployeeCard from './components/EmployeeCard'
+import EditEmployee from './components/EditEmployee'
 
 function App() {
-  const history = useHistory()
-  const [data, setData] = useState(() => setInitialData())
-  const [employeeIndex, setEmployeeIndex] = useState(undefined)
-  const [teamIndex, setTeamIndex] = useState(undefined)
-  const [departmentIndex, setDepartmentIndex] = useState(undefined)
-  const [isAdding, setIsAdding] = useState(false)
-  const [isceo, setisceo] = useState(false)
-
-  function setInitialData() {
-    if (localStorage.getItem('employeeData')) {
-      return JSON.parse(localStorage.getItem("employeeData"))
-    } else {
-      return SampleData
-    }
+  const [data, setData] = useState(() => getData())// This state stores the employee Data.
+  const [departmentIndex, setDepartmentIndex] = useState(undefined)// Stores the departmentIndex for operation.
+  const [teamIndex, setTeamIndex] = useState(undefined)// Stores the teamIndex of the operation.
+  const [memberIndex, setMemberIndex] = useState(undefined)// Stores the memberIndex of the operation.
+  const [isCeo, setIsCeo] = useState(false)// To edit CEO, we keep all operation variables undefined.
+  const [isHead, setIsHead] = useState(false)// To Edit a department Head, we only define departmentIndex and isHead variable.
+  const [isAdding, setIsAdding] = useState(false)// To show add or update button conditionally.
+  // Get the data from localstorage, if it exists,else return SampleData
+  function getData() {
+    if (localStorage.getItem('employeeData')) return JSON.parse(localStorage.getItem('employeeData'))
+    return SampleData
   }
-  function referToHome() {
-    if (window.location.pathname !== '/') {
-      history.push('/')
-      cleanSlate()
-    }
-  }
-  function cleanSlate() {
-    setEmployeeIndex(undefined)
-    setTeamIndex(undefined)
-    setDepartmentIndex(undefined)
-    setIsAdding(false)
-  }
-
-  // Data persistence effect
+  // Push data updates to localstorage
   useEffect(() => {
     localStorage.setItem('employeeData', JSON.stringify(data))
-  }, [data])
+  }
+  )
 
   return (
     <EmployeeData.Provider value={{ data, setData }}>
-      <IndexLocator.Provider value={{ isAdding, setIsAdding, employeeIndex, setEmployeeIndex, departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, isceo, setisceo }}>
-        <Router>
-          <div className="w-screen">
-            <div className="w-screen grid lg:grid-cols-2 bg-gray-200 shadow-lg">
-              <button className="self-center text-indigo-400 text-3xl text-center font-bold my-6" onClick={referToHome}>Employee Directory</button>
-              <button className="text-indigo-400 mx-auto p-4 shadow-lg rounded-lg active:ring-2 active:ring-indigo-200"> Search</button>
-            </div>
-          </div>
-          <Switch>
-            <Route exact path="/">
-              <EmployeeCard ceo={data.ceo} />
-              {data.departments.map((department, index) => <DepartmentCard key={uuidv4()} data={department} departmentindex={index} />)}
-            </Route>
-            <Route exact path={["/editEmployee", "/addEmployee"]}>
-              <EditEmployee />
-            </Route>
-            <Route exact path={["/editTeam", "/addTeam"]}>
-              <EditTeam />
-            </Route>
-          </Switch>
-        </Router>
+      <IndexLocator.Provider value={{ departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, memberIndex, setMemberIndex, isCeo, setIsCeo, isHead, setIsHead, isAdding, setIsAdding }}>
+        <Nav />
+        {/* Fro showing Home Page */}
+        {(departmentIndex === undefined && !isCeo && !isHead) ?
+          (<>
+            <EmployeeCard member={data.ceo} />
+            <DepartmentCard data={data.departments} />
+          </>
+          )
+          : null}
+        {/* To show Team addition Page */}
+        {(departmentIndex !== undefined && teamIndex === undefined && memberIndex === undefined && !isCeo && !isHead) ? <EditTeam /> : null}
+        {/* To show Employee Addition and edition Page */}
+        {(
+          (isCeo) ||
+          (isHead && departmentIndex !== undefined) ||
+          (departmentIndex !== undefined && teamIndex !== undefined && isAdding) ||
+          (departmentIndex !== undefined && teamIndex !== undefined && memberIndex !== undefined)
+        ) ?
+          <EditEmployee />
+          : null}
+        {(departmentIndex !== undefined && teamIndex !== undefined && memberIndex === undefined && !isAdding && !isHead) ?
+          <EditTeam /> :
+          null}
       </IndexLocator.Provider>
     </EmployeeData.Provider>
-  );
+  )
 }
 
-export default App;
+export default App

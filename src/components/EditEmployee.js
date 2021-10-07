@@ -79,6 +79,7 @@ function EditEmployee() {
                 <input className="bg-white text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={contact} onChange={(e) => setContact(e.target.value)}></input>
                 <button className="text-sm bg-green-400 px-1 py-1 rounded-md active:bg-green-500 focus:ring-2 focus:ring-green-600 mx-auto my-1 block" type="submit" onClick={makeChange}>{isAdding ? "Add" : "Update"}</button>
                 {(!isCeo && !isAdding) ? <button className="text-sm bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1 block" type="submit" onClick={referToTransfer}>Transfer</button> : null}
+                <button className="text-sm bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block" onClick={goHome}>Home</button>
             </div>
         </>
     )

@@ -7,6 +7,7 @@ import { IndexLocator } from './contexts/IndexLocator'
 import EditTeam from './components/EditTeam'
 import EmployeeCard from './components/EmployeeCard'
 import EditEmployee from './components/EditEmployee'
+import Search from './components/Search'
 
 function App() {
   const [data, setData] = useState(() => getData())// This state stores the employee Data.
@@ -16,6 +17,8 @@ function App() {
   const [isCeo, setIsCeo] = useState(false)// To edit CEO, we keep all operation variables undefined.
   const [isHead, setIsHead] = useState(false)// To Edit a department Head, we only define departmentIndex and isHead variable.
   const [isAdding, setIsAdding] = useState(false)// To show add or update button conditionally.
+  const [searching, setIsSearching] = useState(false)
+
   // Get the data from localstorage, if it exists,else return SampleData
   function getData() {
     if (localStorage.getItem('employeeData')) return JSON.parse(localStorage.getItem('employeeData'))
@@ -26,11 +29,20 @@ function App() {
     localStorage.setItem('employeeData', JSON.stringify(data))
   }
   )
-
+  if (searching) {
+    return (
+      <EmployeeData.Provider value={{ data, setData }}>
+        <IndexLocator.Provider value={{ departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, memberIndex, setMemberIndex, isCeo, setIsCeo, isHead, setIsHead, isAdding, setIsAdding }}>
+          <Nav setIsSearching={setIsSearching} />
+          <Search setIsSearching={setIsSearching} />
+        </IndexLocator.Provider>
+      </EmployeeData.Provider>
+    )
+  }
   return (
     <EmployeeData.Provider value={{ data, setData }}>
       <IndexLocator.Provider value={{ departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, memberIndex, setMemberIndex, isCeo, setIsCeo, isHead, setIsHead, isAdding, setIsAdding }}>
-        <Nav />
+        <Nav setIsSearching={setIsSearching} />
         {/* Fro showing Home Page */}
         {(departmentIndex === undefined && !isCeo && !isHead) ?
           (<>

@@ -10,7 +10,7 @@ function SearchCard(props) {
                 <p className="text-center my-4 text-xs col-span-1">{member.id}</p>
                 <p className="text-center my-4 text-xs col-span-1">{member.contact}</p>
             </div>
-            <div className="grid grid-flow-col bg-blue-200 shadow-lg mt-0 w-4/5 mx-auto" >
+            <div className="grid grid-flow-col bg-blue-200 shadow-lg mt-0 w-4/5 mx-auto text-center" >
                 {member.isHead && member.department ? <p className="text-center my-4 text-xs  col-span-1">Head of {member.department}</p> : null}
                 {member.isCeo ? <p className="text-center my-4 text-xs  col-span-1">CEO</p> : null}
                 {member.team ? <p className="text-center my-4 text-xs  col-span-1">{member.team} Team</p> : null}

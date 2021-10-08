@@ -11,10 +11,10 @@ A SPA made with react to manage your employee data in efficiant and visually sat
 - [X] Edit CEO Details
 - [X] Edit Department Head Details
 - [X] Persist data changes in localstorage
+- [X] Search for Employee with various parameters
 
 # To-Do
 - [ ] Export Employee Data as CSV
-- [ ] Search for Employee with various parameters
 
 
 # Skills displayed

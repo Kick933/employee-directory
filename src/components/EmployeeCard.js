@@ -52,7 +52,7 @@ function EmployeeCard(props) {
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r font-bold col-span-1">{member.id}</p>
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r font-bold col-span-1">{member.email}</p>
                 <p className="text-center my-4 text-xs font-bold">{member.contact}</p>
-                <button className="bg-blue-400 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button>
+                {!props.isSearching ? <button className="bg-blue-400 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button> : null}
             </div >
         )
     }
@@ -66,7 +66,7 @@ function EmployeeCard(props) {
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r col-span-1">{member.email}</p>
                 <p className="text-center my-4 text-xs">{member.contact}</p>
                 <div className="flex justify-center items-center">
-                    <button className="bg-blue-400 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button>
+                    {!props.isSearching ? <button className="bg-blue-400 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button> : null}
                 </div>
             </div>
         )

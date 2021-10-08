@@ -10,6 +10,7 @@ function EditTeam() {
     function provideTeamName() {
         return (teamIndex === undefined ? "Name of Team" : data.departments[departmentIndex].teams[teamIndex].name)
     }
+
     function makeChange() {
         let newData = JSON.parse(JSON.stringify(data))
         if (teamIndex === undefined) {
@@ -24,11 +25,13 @@ function EditTeam() {
         setData(newData)
         goHome()
     }
+
     function goHome() {
         setTeamIndex(undefined)
         setDepartmentIndex(undefined)
         setIsAdding(false)
     }
+
     return (
         <div className="w-full h-full bg-transparent grid-flow-row mx-auto my-4 grid">
             <p className="block mx-auto text-sm">Name of team</p>

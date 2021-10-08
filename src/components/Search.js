@@ -23,7 +23,7 @@ function Search(props) {
                     <option value="name">Name</option>
                     <option value="id">ID</option>
                     <option value="contact">Contact</option>
-                    <option value="Email">Email</option>
+                    <option value="email">Email</option>
                 </select>
                 <button className="text-sm bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block" onClick={() => setIsSearching(false)}>Back to Home</button>
             </div>

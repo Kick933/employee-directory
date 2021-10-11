@@ -12,6 +12,7 @@ A SPA made with react to manage your employee data in efficiant and visually sat
 - [X] Edit Department Head Details
 - [X] Persist data changes in localstorage
 - [X] Search for Employee with various parameters
+- [X] Transfer employee to another team within the department
 
 # To-Do
 - [ ] Export Employee Data as CSV

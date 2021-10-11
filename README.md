@@ -14,7 +14,7 @@ A SPA made with react to manage your employee data in efficiant and visually sat
 - [X] Search for Employee with various parameters
 - [X] Transfer employee to another team within the department
 
-# Check out [Here](https://kickemployee-directory.netlify.app/)
+# Check it out [Here](https://kickemployee-directory.netlify.app/)
 
 # To-Do
 - [ ] Export Employee Data as CSV

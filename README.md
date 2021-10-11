@@ -12,6 +12,9 @@ A SPA made with react to manage your employee data in efficiant and visually sat
 - [X] Edit Department Head Details
 - [X] Persist data changes in localstorage
 - [X] Search for Employee with various parameters
+- [X] Transfer employee to another team within the department
+
+# Check it out [Here](https://kickemployee-directory.netlify.app/)
 
 # To-Do
 - [ ] Export Employee Data as CSV
@@ -25,7 +28,6 @@ This app shows my familiarity with following-:
 * Hooks
 * Storage Persictance
 * Responsive design
-* 
 # Credits
 * [Create-React-App](https://create-react-app.dev/)
 * [Tailwind CSS](https://tailwindcss.com/)

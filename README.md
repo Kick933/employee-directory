@@ -26,7 +26,6 @@ This app shows my familiarity with following-:
 * Hooks
 * Storage Persictance
 * Responsive design
-* 
 # Credits
 * [Create-React-App](https://create-react-app.dev/)
 * [Tailwind CSS](https://tailwindcss.com/)

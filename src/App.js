@@ -8,6 +8,7 @@ import EditTeam from './components/EditTeam'
 import EmployeeCard from './components/EmployeeCard'
 import EditEmployee from './components/EditEmployee'
 import Search from './components/Search'
+import Transfer from './components/Transfer'
 
 function App() {
   const [data, setData] = useState(() => getData())// This state stores the employee Data.
@@ -18,6 +19,7 @@ function App() {
   const [isHead, setIsHead] = useState(false)// To Edit a department Head, we only define departmentIndex and isHead variable.
   const [isAdding, setIsAdding] = useState(false)// To show add or update button conditionally.
   const [searching, setIsSearching] = useState(false)
+  const [transfer, setTransfer] = useState(false)
 
   // Get the data from localstorage, if it exists,else return SampleData
   function getData() {
@@ -29,6 +31,7 @@ function App() {
     localStorage.setItem('employeeData', JSON.stringify(data))
   }
   )
+  // If user is searching
   if (searching) {
     return (
       <EmployeeData.Provider value={{ data, setData }}>
@@ -38,10 +41,17 @@ function App() {
         </IndexLocator.Provider>
       </EmployeeData.Provider>
     )
+  } else if (transfer) {
+    return (
+      <IndexLocator.Provider value={{ departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, memberIndex, setMemberIndex, isCeo, setIsCeo, isHead, setIsHead, isAdding, setIsAdding }}>
+        <Nav setIsSearching={setIsSearching} />
+        <Transfer setTransfer={setTransfer} data={data} setData={setData} />
+      </IndexLocator.Provider>
+    )
   }
   return (
     <EmployeeData.Provider value={{ data, setData }}>
-      <IndexLocator.Provider value={{ departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, memberIndex, setMemberIndex, isCeo, setIsCeo, isHead, setIsHead, isAdding, setIsAdding }}>
+      <IndexLocator.Provider value={{ departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, memberIndex, setMemberIndex, isCeo, setIsCeo, isHead, setIsHead, isAdding, setIsAdding, setTransfer }}>
         <Nav setIsSearching={setIsSearching} />
         {/* Fro showing Home Page */}
         {(departmentIndex === undefined && !isCeo && !isHead) ?

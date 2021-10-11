@@ -4,7 +4,7 @@ import { IndexLocator } from '../contexts/IndexLocator';
 
 function EditEmployee() {
     const { data, setData } = useContext(EmployeeData)
-    const { departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, isCeo, setIsCeo, isAdding, setIsAdding, memberIndex, setMemberIndex, isHead, setIsHead } = useContext(IndexLocator)
+    const { setTransfer, departmentIndex, setDepartmentIndex, teamIndex, setTeamIndex, isCeo, setIsCeo, isAdding, setIsAdding, memberIndex, setMemberIndex, isHead, setIsHead } = useContext(IndexLocator)
 
     function makeChange() {
         member = { name, id, email, contact }
@@ -36,8 +36,8 @@ function EditEmployee() {
         setData(newData)
         goHome()
     }
-    function referToTransfer(e) {
-        alert('Transfer functionality not yet enabled.')
+    function referToTransfer() {
+        setTransfer(true)
     }
     function goHome() {
         setDepartmentIndex(undefined)
@@ -70,16 +70,16 @@ function EditEmployee() {
         <>
             <div className="w-full h-full bg-transparent grid-flow-row mx-auto my-4 grid">
                 <p className="block mx-auto text-sm">Name</p>
-                <input className="bg-white text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
+                <input className="bg-white h-8 pl-2 text-sm w-60 mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
                 <p className="block mx-auto text-sm">Employee ID</p>
-                <input className="bg-white text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={id} onChange={(e) => setId(e.target.value)}></input>
+                <input className="bg-white h-8 pl-2 text-sm w-60 mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={id} onChange={(e) => setId(e.target.value)}></input>
                 <p className="block mx-auto text-sm">Email Address</p>
-                <input className="bg-white text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                <input className="bg-white h-8 pl-2 text-sm w-60 mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <p className="block mx-auto text-sm">Contact</p>
-                <input className="bg-white text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={contact} onChange={(e) => setContact(e.target.value)}></input>
-                <button className="text-sm bg-green-400 px-1 py-1 rounded-md active:bg-green-500 focus:ring-2 focus:ring-green-600 mx-auto my-1 block" type="submit" onClick={makeChange}>{isAdding ? "Add" : "Update"}</button>
-                {(!isCeo && !isAdding) ? <button className="text-sm bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1 block" type="submit" onClick={referToTransfer}>Transfer</button> : null}
-                <button className="text-sm bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block" onClick={goHome}>Home</button>
+                <input className="bg-white h-8 pl-2 text-sm w-60 mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={contact} onChange={(e) => setContact(e.target.value)}></input>
+                <button className="text-sm bg-green-400 w-60 px-1 py-1 rounded-md active:bg-green-500 focus:ring-2 focus:ring-green-600 mx-auto my-1 block" type="submit" onClick={makeChange}>{isAdding ? "Add" : "Update"}</button>
+                {(!isCeo && !isAdding && !isHead) ? <button className="text-sm bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1 block w-60" type="submit" onClick={referToTransfer}>Transfer</button> : null}
+                <button className="text-sm bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block w-60" onClick={goHome}>Home</button>
             </div>
         </>
     )

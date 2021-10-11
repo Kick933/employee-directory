@@ -14,6 +14,9 @@ function Search(props) {
         const target = e.target
         setInput(target.value)
     }
+    function goHome() {
+        setIsSearching(false)
+    }
 
     return (
         <>
@@ -26,7 +29,7 @@ function Search(props) {
                     <option value="contact">Contact</option>
                     <option value="email">Email</option>
                 </select>
-                <button className="text-sm bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block" onClick={() => setIsSearching(false)}>Back to Home</button>
+                <button className="text-sm bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block" onClick={goHome}>Back to Home</button>
             </div>
             <WrapperCard>
                 {data.ceo[selected].toLowerCase().includes(input.toLowerCase()) ? <SearchCard member={data.ceo} /> : <h1>No Match found</h1>}

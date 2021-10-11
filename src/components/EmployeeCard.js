@@ -52,7 +52,7 @@ function EmployeeCard(props) {
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r font-bold col-span-1">{member.id}</p>
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r font-bold col-span-1">{member.email}</p>
                 <p className="text-center my-4 text-xs font-bold">{member.contact}</p>
-                {!props.isSearching ? <button className="bg-blue-400 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button> : null}
+                {!props.isSearching ? <button className="bg-blue-400 w-20 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button> : null}
             </div >
         )
     }
@@ -66,7 +66,7 @@ function EmployeeCard(props) {
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r col-span-1">{member.email}</p>
                 <p className="text-center my-4 text-xs">{member.contact}</p>
                 <div className="flex justify-center items-center">
-                    {!props.isSearching ? <button className="bg-blue-400 px-2 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button> : null}
+                    {!props.isSearching ? <button className="bg-blue-400 px-2 py-1 w-20 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={editEmployee}>Edit</button> : null}
                 </div>
             </div>
         )
@@ -79,12 +79,12 @@ function EmployeeCard(props) {
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r col-span-1">{member.contact}</p>
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r col-span-1">{member.team} Team</p>
                 <p className="text-center my-4 text-xs lg:border-black lg:border-r col-span-1">{member.department} Department</p>
-                {member.isLead ? <p className="text-center my-4 text-xs lg:border-black lg:border-r">Team Lead</p> : <button className="text-xs bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto" onClick={setLead}>Set Lead</button>}
+                {member.isLead ? <p className="text-center my-4 text-xs lg:border-black lg:border-r">Team Lead</p> : <button className="text-xs bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 m-auto w-20" onClick={setLead}>Set Lead</button>}
                 <div className="flex justify-center items-center">
-                    <button className="text-xs bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1" onClick={editEmployee}>Edit</button>
+                    <button className="text-xs bg-blue-400 px-1 py-1 w-20 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1" onClick={editEmployee}>Edit</button>
                 </div>
                 <div className="flex justify-center items-center">
-                    <button className="text-xs bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1" onClick={removeEmployee}>Remove</button>
+                    <button className="text-xs bg-red-400 px-1 py-1 w-20 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1" onClick={removeEmployee}>Remove</button>
                 </div>
             </div>)
     }

@@ -35,9 +35,9 @@ function EditTeam() {
     return (
         <div className="w-full h-full bg-transparent grid-flow-row mx-auto my-4 grid">
             <p className="block mx-auto text-sm">Name of team</p>
-            <input className="bg-white text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
-            <button className="text-sm bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1 block" type="submit" onClick={makeChange}>{isAdding ? "Add" : "Update"}</button>
-            <button className="text-sm bg-blue-400 px-1 py-1 rounded-md active:bg-blue-500 focus:ring-2 focus:ring-blue-600 mx-auto my-1 block" type="submit" onClick={goHome}>Back to Home</button>
+            <input className="bg-white w-60 h-8 pl-2 text-sm mx-auto my-2 block border-2 rounded-md border-pink-200" type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
+            <button className="text-sm w-60 bg-green-400 px-1 py-1 rounded-md active:bg-green-500 focus:ring-2 focus:ring-green-600 mx-auto my-1 block" type="submit" onClick={makeChange}>{isAdding ? "Add" : "Update"}</button>
+            <button className="text-sm w-60 bg-red-400 px-1 py-1 rounded-md active:bg-red-500 focus:ring-2 focus:ring-red-600 mx-auto my-1 block" type="submit" onClick={goHome}>Back to Home</button>
         </div>
     )
 }
